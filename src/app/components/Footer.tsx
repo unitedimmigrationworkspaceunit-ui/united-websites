@@ -16,32 +16,29 @@ export function Footer() {
   };
 
   const quickLinks = [
-    { label: 'About Us', href: '#home' },
-    { label: 'Our Services', href: '#services' },
-    { label: 'Countries', href: '#countries' },
-    { label: 'Fee Structure', href: '#fees' },
-    { label: 'Success Stories', href: '#testimonials' },
-    { label: 'Track Application', href: '#tracker' },
-    { label: 'Contact Us', href: '#contact' },
-    { label: 'FAQ', href: '#contact' },
+    { label: 'About Us', href: '#/about' },
+    { label: 'Study Visa', href: '#/' },
+    { label: 'Visitor Visa', href: '#/visitor-visa' },
+    { label: 'Spousal Visa', href: '#/spousal-visa' },
+    { label: 'Testimonials', href: '#/' },
+    { label: 'Contact Us', href: '#/contact' },
+    { label: 'FAQ', href: '#/' },
   ];
 
   const services = [
-    { label: 'Germany Opportunity Card', href: '#services' },
-    { label: 'Tourist Visa', href: '#services' },
-    { label: 'Work Visa', href: '#services' },
-    { label: 'PR / Immigration', href: '#services' },
-    { label: 'Fee Structure', href: '#fees' },
-    { label: 'Free Consultation', href: '#contact' },
+    { label: 'Study Visa', href: '#/' },
+    { label: 'Visitor Visa', href: '#/visitor-visa' },
+    { label: 'Spousal Visa', href: '#/spousal-visa' },
+    { label: 'Free Consultation', href: '#/contact' },
   ];
 
   const destinations = [
-    { flag: '🇨🇦', name: 'Canada' },
-    { flag: '🇦🇺', name: 'Australia' },
-    { flag: '🇬🇧', name: 'United Kingdom' },
-    { flag: '🇺🇸', name: 'United States' },
-    { flag: '🇩🇪', name: 'Germany' },
-    { flag: '🇳🇿', name: 'New Zealand' },
+    { flag: '🇨🇦', name: 'Canada', href: '#/study-visa/canada' },
+    { flag: '🇦🇺', name: 'Australia', href: '#/study-visa/australia' },
+    { flag: '🇬🇧', name: 'United Kingdom', href: '#/study-visa/uk' },
+    { flag: '🇺🇸', name: 'United States', href: '#/study-visa/usa' },
+    { flag: '🇪🇺', name: 'Europe', href: '#/study-visa/europe' },
+    { flag: '🇳🇿', name: 'New Zealand', href: '#/study-visa/new-zealand' },
   ];
 
   const socialLinks = [
@@ -121,12 +118,12 @@ export function Footer() {
               <Logo size="xl" variant="dark" />
               <div>
                 <h3 className="font-black text-white text-lg leading-tight">United Immigration</h3>
-                <p className="text-[10px] font-bold tracking-[0.2em] text-[#D4A24C] uppercase mt-0.5">Services Pvt. Ltd.</p>
+                <p className="text-[10px] font-bold tracking-[0.2em] text-[#D4A24C] uppercase mt-0.5">Services</p>
               </div>
             </div>
 
             <p className="text-white/55 text-sm leading-relaxed mb-6 max-w-sm">
-              India's most trusted immigration consultancy since 2009. We've helped 50,000+ clients achieve their global migration dreams with expert guidance and a proven 98% success rate.
+              India's most trusted Study Visa &amp; International Education Consultancy. We've helped thousands of students achieve their dream of studying abroad with expert guidance and a proven success rate.
             </p>
 
             {/* Contact Details */}
@@ -143,17 +140,11 @@ export function Footer() {
                 </div>
                 <p className="text-white/55 text-sm group-hover:text-[#D4A24C] transition-colors">+91 77107 05551</p>
               </a>
-              <a href="mailto:team@unitedimmigration-services.com" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 bg-[#D4A24C]/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4 text-[#D4A24C]" />
-                </div>
-                <p className="text-white/55 text-sm group-hover:text-[#D4A24C] transition-colors">team@unitedimmigration-services.com</p>
-              </a>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-[#D4A24C]/15 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Clock className="w-4 h-4 text-[#D4A24C]" />
                 </div>
-                <p className="text-white/55 text-sm">Mon – Sat: 9AM – 7PM · <span className="text-red-400 font-semibold">Sunday Closed</span></p>
+                <p className="text-white/55 text-sm">Mon – Sat: 9AM – 6PM · <span className="text-red-400 font-semibold">Sunday Closed</span></p>
               </div>
             </div>
 
@@ -258,7 +249,11 @@ export function Footer() {
               <h4 className="text-xs font-bold mb-4 text-[#D4A24C] uppercase tracking-[0.15em]">Destinations We Cover</h4>
               <div className="grid grid-cols-2 gap-2.5">
                 {destinations.map((c) => (
-                  <div key={c.name} className="flex items-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.07] border border-white/[0.07] rounded-xl px-3 py-2 transition-colors cursor-pointer">
+                  <div
+                    key={c.name}
+                    onClick={() => (window.location.hash = c.href)}
+                    className="flex items-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.07] border border-white/[0.07] rounded-xl px-3 py-2 transition-colors cursor-pointer"
+                  >
                     <span className="text-base">{c.flag}</span>
                     <span className="text-white/60 text-xs font-medium">{c.name}</span>
                   </div>
@@ -291,7 +286,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/35 text-sm text-center md:text-left">
-              © 2026 United Immigration Services Pvt. Ltd. All rights reserved.
+              © 2026 United Immigration Services. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-5">
               <PrivacyPolicy>

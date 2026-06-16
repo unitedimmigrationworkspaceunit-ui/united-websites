@@ -12,10 +12,10 @@ export function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const features = [
-    '15+ Years Experience',
+    'Study Visa Specialists',
     '98% Success Rate',
-    '50,000+ Visas Approved',
-    'Government Authorized',
+    '10,000+ Students Placed',
+    'Free 1-Hour Consultation',
   ];
 
   const destinations = [
@@ -23,7 +23,8 @@ export function HeroSection() {
     { flag: '🇦🇺', label: 'Australia' },
     { flag: '🇬🇧', label: 'UK' },
     { flag: '🇺🇸', label: 'USA' },
-    { flag: '🇩🇪', label: 'Germany' },
+    { flag: '🇳🇿', label: 'New Zealand' },
+    { flag: '🌍', label: 'Europe' },
   ];
 
   const floatingParticles = Array.from({ length: 24 }, (_, i) => ({
@@ -111,7 +112,7 @@ export function HeroSection() {
                 transition={{ delay: 0.35 }}
                 className="text-xl lg:text-2xl text-[#1E1E1E]/75 leading-relaxed max-w-xl"
               >
-                India's most trusted immigration consultancy for Students, Skilled Workers, and Families — get your visa approved with{' '}
+                India's most trusted Study Visa & International Education Consultancy — guiding students to their dream universities worldwide with{' '}
                 <span className="text-[#D4A24C] font-semibold">expert guidance</span>.
               </motion.p>
             </div>
@@ -158,7 +159,7 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                onClick={() => document.querySelector('#fees')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-[#D4A24C] hover:bg-[#B8892E] text-white px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all group"
               >
                 Check Your Eligibility
@@ -224,8 +225,8 @@ export function HeroSection() {
               className="relative rounded-3xl overflow-hidden shadow-2xl"
             >
               <ImageWithFallback
-                src={indianHero.main}
-                alt="Happy Indian family achieving their immigration goals"
+                src="/image001.jpeg"
+                alt="Airplane flying in purple sky - Turning Dreams into Destinations"
                 className="w-full h-[480px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 via-transparent to-transparent" />

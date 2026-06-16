@@ -1,26 +1,31 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, MessageSquare, CheckCircle2, Star } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { toast } from 'sonner';
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({ fullName: '', phone: '', email: '', country: '', visaType: '', message: '' });
+  const [formData, setFormData] = useState({ fullName: '', phone: '', email: '', country: '', visaType: '', callbackNeeded: false, message: '' });
 
-  const countries = ['Canada', 'Australia', 'United Kingdom', 'United States', 'Germany', 'Other'];
-  const visaTypes = ['Student Visa', 'Work Visa', 'PR Visa', 'Tourist Visa', 'Family Sponsorship', 'Business Visa'];
+  const countries = ['Canada', 'Australia', 'United Kingdom', 'United States', 'Ireland', 'New Zealand', 'Europe', 'Other'];
+  const visaTypes = ['Study Visa', 'Visitor Visa', 'Spousal Visa', 'University Admissions', 'Other'];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Request submitted! Our team will contact you within 24 hours.');
-    setFormData({ fullName: '', phone: '', email: '', country: '', visaType: '', message: '' });
+    const prefix = formData.callbackNeeded ? 'Callback request' : 'Assessment enquiry';
+    toast.success(`${prefix} submitted! Our team will contact you within 24 hours.`);
+    setFormData({ fullName: '', phone: '', email: '', country: '', visaType: '', callbackNeeded: false, message: '' });
   };
 
   const contactInfo = [
-    { icon: MapPin, title: 'Our Office', details: ['2nd Floor, SCO 495-496, Sector 35-C,', 'Chandigarh, Punjab 160022'], href: 'https://maps.google.com/?q=SCO+495-496+Sector+35-C+Chandigarh' },
+    { icon: MapPin, title: 'Our Office', details: ['SCO 495-496, 2nd Floor, Sector 35-C,', 'Chandigarh, Punjab 160022'], href: 'https://maps.google.com/?q=SCO+495-496+Sector+35-C+Chandigarh' },
     { icon: Phone, title: 'Call Us', details: ['+91 77107 05551'], href: 'tel:+917710705551' },
-    { icon: Mail, title: 'Email Us', details: ['team@unitedimmigration-services.com'], href: 'mailto:team@unitedimmigration-services.com' },
-    { icon: Clock, title: 'Working Hours', details: ['Mon – Sat: 9:00 AM – 7:00 PM', 'Sunday: Closed'], href: null },
+    { icon: Clock, title: 'Working Hours', details: ['Mon – Sat: 9:00 AM – 6:00 PM', 'Sunday: Closed'], href: null },
+  ];
+
+  const clientReviews = [
+    { name: "Gurwinder Singh", rating: 5, text: "Truly Chandigarh's best study visa consultant! Got my Canada study visa approved in record time.", date: "Just now" },
+    { name: "Rajveer Kaur", rating: 5, text: "Honest counselling and transparent fees. They guided me through the UK admission process so smoothly.", date: "1 week ago" }
   ];
 
   const inputClass = "w-full bg-[#FAF7F2] border border-gray-200 text-[#0B1F3A] placeholder:text-gray-400 text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-[#D4A24C] focus:ring-2 focus:ring-[#D4A24C]/10 transition-all";
@@ -42,13 +47,13 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <span className="inline-block px-5 py-2 bg-[#F5EFE6] text-[#D4A24C] rounded-full text-sm font-bold mb-5">
-            Get In Touch
+            Contact Us
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3A] mb-4 leading-tight">
             Start Your Journey Today
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Book a free consultation and let our experts guide you to your dream destination.
+            Book a free consultation at Chandigarh's top-rated study visa agency or request an instant call-back.
           </p>
         </motion.div>
 
@@ -120,12 +125,27 @@ export function ContactSection() {
                   </div>
                 </div>
 
+                {/* Quick Call-back toggle */}
+                <div className="bg-[#FAF7F2] p-4 rounded-xl border border-gray-150 flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="callbackToggle"
+                    checked={formData.callbackNeeded}
+                    onChange={(e) => setFormData({ ...formData, callbackNeeded: e.target.checked })}
+                    className="mt-1 w-4.5 h-4.5 rounded text-[#D4A24C] focus:ring-[#D4A24C] accent-[#D4A24C]"
+                  />
+                  <div>
+                    <label htmlFor="callbackToggle" className="text-sm font-bold text-[#0B1F3A] cursor-pointer">Request a Quick Call Back</label>
+                    <p className="text-xs text-gray-500">Check this if you want our senior visa counselor to call you back directly.</p>
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-sm font-semibold text-[#0B1F3A] mb-2">Message</label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your immigration goals..."
+                    placeholder="Tell us about your education goals..."
                     rows={4}
                     className={inputClass + " resize-none"}
                   />
@@ -137,7 +157,7 @@ export function ContactSection() {
                     className="flex-1 flex items-center justify-center gap-2 bg-[#D4A24C] hover:bg-[#B8892E] text-white font-bold py-4 rounded-xl shadow-lg shadow-[#D4A24C]/20 transition-all hover:-translate-y-0.5"
                   >
                     <Send className="w-4 h-4" />
-                    Request Free Assessment
+                    {formData.callbackNeeded ? 'Request Call Back' : 'Submit Assessment'}
                   </button>
                   <button
                     type="button"
@@ -201,31 +221,53 @@ export function ContactSection() {
               );
             })}
 
-            {/* Map CTA */}
+            {/* Embedded Google Maps */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="rounded-2xl overflow-hidden border border-gray-100 shadow-md h-56 relative"
+            >
+              <iframe
+                src="https://maps.google.com/maps?q=SCO%20495-496,%202nd%20Floor,%20Sector%2035-C,%20Chandigarh&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+              />
+            </motion.div>
+
+            {/* Local Reviews */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
+              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-4"
             >
-              <a
-                href="https://maps.google.com/?q=SCO+495-496+Sector+35-C+Chandigarh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 bg-gradient-to-br from-[#0B1F3A] to-[#1a3a5c] rounded-2xl p-5 hover:shadow-xl transition-all"
-              >
-                <div className="w-12 h-12 bg-[#D4A24C] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MapPin className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-white font-bold text-sm">Chandigarh Office</p>
-                  <p className="text-white/60 text-xs mt-0.5">2nd Floor, SCO 495-496, Sector 35-C</p>
-                </div>
-                <span className="text-[#D4A24C] text-xs font-bold group-hover:translate-x-1 transition-transform">
-                  Get Directions →
-                </span>
-              </a>
+              <h4 className="text-sm font-bold text-[#0B1F3A] flex items-center gap-1.5">
+                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" /> Client Reviews
+              </h4>
+              <div className="space-y-3">
+                {clientReviews.map((r, i) => (
+                  <div key={i} className="text-xs border-b border-gray-50 last:border-b-0 pb-2 last:pb-0">
+                    <div className="flex justify-between font-semibold text-[#0B1F3A] mb-1">
+                      <span>{r.name}</span>
+                      <span className="text-[10px] text-gray-400 font-normal">{r.date}</span>
+                    </div>
+                    <div className="flex gap-0.5 mb-1">
+                      {[...Array(r.rating)].map((_, idx) => (
+                        <Star key={idx} className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
+                    <p className="text-gray-500 leading-relaxed">"{r.text}"</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
+
           </motion.div>
         </div>
       </div>

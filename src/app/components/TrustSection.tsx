@@ -34,11 +34,11 @@ function CountUp({ target, suffix = '', decimals = 0 }: { target: number; suffix
 export function TrustSection() {
   const stats = [
     { icon: TrendingUp, value: 98, suffix: '%', label: 'Success Rate', sublabel: 'Visa Approvals', gradient: 'from-green-400 to-emerald-500' },
-    { icon: CheckCircle2, value: 50000, suffix: '+', label: 'Visas Approved', sublabel: 'Across all categories', gradient: 'from-blue-400 to-cyan-500' },
-    { icon: Globe, value: 25, suffix: '+', label: 'Countries Served', sublabel: 'Global destinations', gradient: 'from-purple-400 to-violet-500' },
-    { icon: Users, value: 45000, suffix: '+', label: 'Happy Clients', sublabel: 'Families relocated', gradient: 'from-orange-400 to-amber-500' },
-    { icon: Award, value: 15, suffix: '+', label: 'Years Experience', sublabel: 'Industry expertise', gradient: 'from-red-400 to-rose-500' },
-    { icon: Star, value: 4.9, suffix: '', label: 'Google Rating', sublabel: '12,000+ reviews', gradient: 'from-yellow-400 to-amber-400', decimals: 1 },
+    { icon: CheckCircle2, value: 10000, suffix: '+', label: 'Students Placed', sublabel: 'Across all destinations', gradient: 'from-blue-400 to-cyan-500' },
+    { icon: Globe, value: 10, suffix: '+', label: 'Destinations Covered', sublabel: 'Study abroad countries', gradient: 'from-purple-400 to-violet-500' },
+    { icon: Users, value: 15000, suffix: '+', label: 'Happy Clients', sublabel: 'Families & students', gradient: 'from-orange-400 to-amber-500' },
+    { icon: Award, value: 5, suffix: '+', label: 'Years Dedicated', sublabel: 'Study visa expertise', gradient: 'from-red-400 to-rose-500' },
+    { icon: Star, value: 4.9, suffix: '', label: 'Google Rating', sublabel: 'Client reviews', gradient: 'from-yellow-400 to-amber-400', decimals: 1 },
   ];
 
   const certifications = [
@@ -53,7 +53,7 @@ export function TrustSection() {
     { icon: Award, label: 'BBB A+ Accredited', color: 'text-blue-400' },
     { icon: CheckCircle2, label: 'Trusted Partner', color: 'text-purple-400' },
     { icon: Zap, label: '24/7 Support', color: 'text-amber-400' },
-    { icon: TrendingUp, label: 'Money-Back Policy', color: 'text-rose-400' },
+    { icon: TrendingUp, label: 'Transparent Process', color: 'text-rose-400' },
     { icon: Globe, label: 'Secure & Private', color: 'text-cyan-400' },
   ];
 
@@ -87,7 +87,7 @@ export function TrustSection() {
             <span className="text-[#D4A24C]">Worldwide</span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Numbers that reflect 15 years of dedication, expertise, and unwavering commitment to client success.
+            Numbers that reflect our dedication, expertise, and unwavering commitment to every student's success.
           </p>
         </motion.div>
 
@@ -132,7 +132,7 @@ export function TrustSection() {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-white mb-2">
-              Licensed & Certified Immigration Consultants
+              Authorised & Certified Education Consultants
             </h3>
             <p className="text-white/60">Regulated by international bodies — your application is in safe hands</p>
           </div>

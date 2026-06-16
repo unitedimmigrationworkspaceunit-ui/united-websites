@@ -72,22 +72,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold mb-1">Phone</p>
-                    <p className="text-white/80">+1 (555) 123-4567</p>
                     <p className="text-white/80">+91 77107 05551</p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ x: 10 }}
-                  className="flex items-start gap-4"
-                >
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="font-semibold mb-1">Email</p>
-                    <p className="text-white/80">info@unitedimmigration.com</p>
-                    <p className="text-white/80">support@unitedimmigration.com</p>
                   </div>
                 </motion.div>
 
@@ -101,9 +86,9 @@ export function Contact() {
                   <div>
                     <p className="font-semibold mb-1">Office</p>
                     <p className="text-white/80">
-                      123 Immigration Plaza
+                      2nd Floor, SCO 495-496, Sector 35-C
                       <br />
-                      New Delhi, India 110001
+                      Chandigarh, Punjab 160022
                     </p>
                   </div>
                 </motion.div>
@@ -128,15 +113,9 @@ export function Contact() {
               </h3>
               <div className="space-y-2 text-[#1E1E1E]/70">
                 <div className="flex justify-between">
-                  <span>Monday - Friday</span>
+                  <span>Monday – Saturday</span>
                   <span className="font-semibold text-[#0B1F3A]">
-                    9:00 AM - 6:00 PM
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="font-semibold text-[#0B1F3A]">
-                    10:00 AM - 4:00 PM
+                    9:00 AM – 6:00 PM
                   </span>
                 </div>
                 <div className="flex justify-between">

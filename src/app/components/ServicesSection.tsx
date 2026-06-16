@@ -1,28 +1,28 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Clock, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GraduationCap, Plane, Heart, BookOpen } from 'lucide-react';
 
 const services = [
   {
-    emoji: '🇩🇪',
-    title: 'Germany Opportunity Card',
-    tagline: "Europe's strongest economy awaits",
-    description: 'New Chancenkarte (Opportunity Card), EU Blue Card, Job Seeker Visa — we handle German bureaucracy in your language.',
-    features: ['Chancenkarte Application', 'EU Blue Card Processing', 'Qualification Recognition', 'Job Offer Support'],
-    time: '2–4 months',
-    success: '96%',
+    icon: GraduationCap,
+    emoji: '🎓',
+    title: 'Study Visa',
+    tagline: 'Your gateway to world-class education',
+    description: 'Comprehensive study visa assistance for Canada, UK, Australia, USA, Ireland, New Zealand, Singapore, UAE & Europe. From university selection to visa grant — we handle it all.',
+    features: ['University & College Selection', 'Admission Application Support', 'Study Visa Filing', 'Pre-Departure Guidance'],
+    success: '98%',
     gradient: 'from-[#D4A24C] via-[#B8892E] to-[#D4A24C]',
     lightBg: 'from-[#D4A24C]/10 to-transparent',
     accent: '#D4A24C',
     glowColor: 'rgba(212, 162, 76, 0.15)',
   },
   {
+    icon: Plane,
     emoji: '✈️',
-    title: 'Tourist Visa',
+    title: 'Visitor Visa',
     tagline: 'Explore the world with confidence',
-    description: 'Fast-track tourist visa processing for Canada, UK, Australia, USA, Germany, and Schengen. We handle documentation, cover letters & appointment booking.',
-    features: ['Fast Processing', 'Cover Letter Drafting', 'VFS / Embassy Appointment', 'Document Checklist'],
-    time: '1–3 weeks',
+    description: 'Fast-track visitor visa processing for Canada, UK, Australia, USA, Schengen & beyond. We handle documentation, cover letters, financial proofs & appointment booking.',
+    features: ['Document Checklist & Review', 'Cover Letter Drafting', 'Embassy Appointment Support', 'Fast Processing'],
     success: '99%',
     gradient: 'from-[#D4A24C] via-[#B8892E] to-[#D4A24C]',
     lightBg: 'from-[#D4A24C]/10 to-transparent',
@@ -30,12 +30,12 @@ const services = [
     glowColor: 'rgba(212, 162, 76, 0.15)',
   },
   {
-    emoji: '💼',
-    title: 'Work Visa',
-    tagline: 'Build your career abroad',
-    description: 'End-to-end work permit assistance for Canada, UK, Australia, USA & Germany. From job offer support to visa filing, we handle it all.',
-    features: ['Employer Matching Support', 'Job Offer Verification', 'Work Permit Filing', 'Arrival Support'],
-    time: '4–8 weeks',
+    icon: Heart,
+    emoji: '💑',
+    title: 'Spousal Visa',
+    tagline: 'Reunite with your loved ones abroad',
+    description: 'Dedicated spousal & family reunification visa assistance. We guide you through relationship documentation, financial requirements & visa application for multiple destinations.',
+    features: ['Spousal Sponsorship Support', 'Relationship Documentation', 'Financial Requirement Guidance', 'End-to-End Application Help'],
     success: '97%',
     gradient: 'from-[#D4A24C] via-[#B8892E] to-[#D4A24C]',
     lightBg: 'from-[#D4A24C]/10 to-transparent',
@@ -43,12 +43,12 @@ const services = [
     glowColor: 'rgba(212, 162, 76, 0.15)',
   },
   {
-    emoji: '🏠',
-    title: 'PR / Immigration',
-    tagline: 'Permanent residency made simple',
-    description: 'Strategic PR planning for Canada, Australia, UK & Germany. We optimise your profile, manage eligibility assessments and file watertight applications.',
-    features: ['Profile Assessment', 'Points Optimisation', 'Application Filing', 'Landing Assistance'],
-    time: '6–18 months',
+    icon: BookOpen,
+    emoji: '📚',
+    title: 'Additional Services',
+    tagline: 'Complete end-to-end student support',
+    description: 'Beyond visa filing — we provide ticket booking assistance, health insurance guidance, documentation support, country-specific counseling & application review.',
+    features: ['Ticket Booking Assistance', 'Health Insurance Guidance', 'Country-Specific Counseling', 'Application Review & Submission'],
     success: '98%',
     gradient: 'from-[#D4A24C] via-[#B8892E] to-[#D4A24C]',
     lightBg: 'from-[#D4A24C]/10 to-transparent',
@@ -59,6 +59,20 @@ const services = [
 
 export function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const getServiceHash = (title: string) => {
+    switch (title.toLowerCase()) {
+      case 'study visa':
+        return '#/study-visa/canada';
+      case 'visitor visa':
+        return '#/visitor-visa';
+      case 'spousal visa':
+        return '#/spousal-visa';
+      case 'additional services':
+      default:
+        return '#/chandigarh-consultant';
+    }
+  };
 
   return (
     <section id="services" className="py-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #0d2a4a 40%, #0B1F3A 100%)' }}>
@@ -74,10 +88,28 @@ export function ServicesSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <span className="inline-block px-5 py-2 bg-[#D4A24C]/20 text-[#D4A24C] rounded-full text-sm font-bold mb-5 border border-[#D4A24C]/30">
+            Our Services
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+            Your Path to <span className="text-[#D4A24C]">Global Education</span>
+          </h2>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            From study visas to visitor permits — personalized, transparent, and end-to-end support for every step of your journey.
+          </p>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, index) => {
+            const Icon = service.icon;
             const isHovered = hoveredIndex === index;
             return (
               <motion.div
@@ -89,6 +121,7 @@ export function ServicesSection() {
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
                 whileHover={{ y: -14, scale: 1.02 }}
+                onClick={() => window.location.hash = getServiceHash(service.title)}
                 className="relative group h-full flex flex-col"
               >
                 {/* Card */}
@@ -105,7 +138,7 @@ export function ServicesSection() {
                   <div className={`h-1 bg-gradient-to-r ${service.gradient} w-0 group-hover:w-full transition-all duration-500`} />
 
                   <div className="p-6 flex flex-col flex-grow">
-                    {/* Emoji + Success badge */}
+                    {/* Icon + Success badge */}
                     <div className="flex items-start justify-between mb-5 flex-shrink-0">
                       <motion.div
                         animate={{ scale: isHovered ? 1.15 : 1, rotate: isHovered ? 5 : 0 }}
@@ -144,8 +177,6 @@ export function ServicesSection() {
                         </div>
                       ))}
                     </div>
-
-
                   </div>
                 </div>
               </motion.div>
@@ -162,11 +193,11 @@ export function ServicesSection() {
         >
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl px-8 py-6">
             <div className="text-white/80 text-left">
-              <p className="font-bold text-white">Not sure which service fits you?</p>
-              <p className="text-sm text-white/60">Our experts will guide you to the right pathway — free of charge.</p>
+              <p className="font-bold text-white">Get a free 1-hour consultation</p>
+              <p className="text-sm text-white/60">Our counsellors will guide you to the right study destination — no obligation.</p>
             </div>
             <a
-              href="#contact"
+              href="#/contact"
               className="flex items-center gap-2 bg-gradient-to-r from-[#D4A24C] to-[#B8892E] text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-[#D4A24C]/30 hover:shadow-xl transition-all whitespace-nowrap"
             >
               Free Consultation <ArrowRight className="w-4 h-4" />
