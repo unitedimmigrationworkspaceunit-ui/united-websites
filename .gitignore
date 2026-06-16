@@ -16,7 +16,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor files
+
 .vscode/
 .idea/
 
