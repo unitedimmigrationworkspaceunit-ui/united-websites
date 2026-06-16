@@ -46,7 +46,7 @@ const countries = [
     dialCode: '+1',
     highlights: ['F1 Student Visa', 'OPT/CPT Guidance', 'University Admission Support'],
     gradient: 'from-purple-600/80 to-purple-900/80',
-    accentColor: 'bg-purple-500',
+    accentColor: 'bg-purple-600',
   },
   {
     name: 'New Zealand',
