@@ -14,7 +14,7 @@ export function AboutUs() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-16 bg-white rounded-t-[2rem] sm:rounded-t-[3rem] -mt-8 relative z-10 shadow-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-16 bg-white rounded-[2rem] sm:rounded-[3rem] mt-8 sm:mt-12 mb-12 sm:mb-20 relative z-10 shadow-xl">
         {/* Mission */}
         <div className="grid md:grid-cols-2 gap-10 sm:gap-12 items-center">
           <div>

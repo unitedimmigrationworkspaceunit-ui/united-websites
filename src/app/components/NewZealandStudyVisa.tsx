@@ -6,25 +6,46 @@ export function NewZealandStudyVisa() {
     <div className="min-h-screen bg-white">
       <div className="bg-gradient-to-br from-[#0B1F3A] to-[#122e54] text-white pt-36 sm:pt-44 pb-16 sm:pb-20 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #D4A24C 2px, transparent 0)', backgroundSize: '32px 32px' }} />
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-xl w-full">
-            <span className="inline-block px-4 py-1.5 bg-[#D4A24C]/20 text-[#D4A24C] border border-[#D4A24C]/30 rounded-full text-xs font-bold mb-4 uppercase tracking-widest">New Zealand Student Visa</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-tight">Study in New Zealand</h1>
-            <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-6">Experience exceptional education standards, high quality of life, and generous post-study work opportunities in a peaceful and beautiful country.</p>
-            <div className="flex items-center gap-6 flex-wrap">
-              <div><span className="text-2xl sm:text-3xl font-extrabold text-[#D4A24C]">97%</span><p className="text-xs text-white/50">Success Rate</p></div>
-              <div className="w-px h-10 bg-white/20" />
-              <div><span className="text-2xl sm:text-3xl font-extrabold text-[#D4A24C]">4-6 Weeks</span><p className="text-xs text-white/50">Avg. Processing</p></div>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
+          <div className="w-full space-y-8">
+            <div>
+              <span className="inline-block px-4 py-1.5 bg-[#D4A24C]/20 text-[#D4A24C] border border-[#D4A24C]/30 rounded-full text-xs font-bold mb-4 uppercase tracking-widest backdrop-blur-sm shadow-lg shadow-[#D4A24C]/10">New Zealand Student Visa</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight flex flex-wrap items-center gap-x-3">
+                <span>Study in</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A24C] to-[#F3E5AB]">New Zealand</span>
+              </h1>
+            </div>
+            <p className="text-white/80 text-lg sm:text-xl leading-relaxed max-w-xl font-light">Experience exceptional education standards, high quality of life, and generous post-study work opportunities in a peaceful and beautiful country.</p>
+            <div className="flex items-center gap-8 pt-4">
+              <div className="flex flex-col">
+                <span className="text-4xl font-black text-[#D4A24C] drop-shadow-[0_0_15px_rgba(212,162,76,0.3)]">97%</span>
+                <span className="text-sm text-white/60 font-medium tracking-wide mt-1 uppercase">Success Rate</span>
+              </div>
+              <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+              <div className="flex flex-col">
+                <span className="text-4xl font-black text-[#D4A24C] drop-shadow-[0_0_15px_rgba(212,162,76,0.3)]">4-6 Wks</span>
+                <span className="text-sm text-white/60 font-medium tracking-wide mt-1 uppercase">Avg. Processing</span>
+              </div>
             </div>
           </div>
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-xs h-48 sm:h-56 flex-shrink-0">
+          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-[#0B1F3A]/50 w-full aspect-[4/3] lg:aspect-[5/4] group border border-white/10">
+            <div className="absolute inset-0 bg-[#D4A24C]/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <img
-              src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=1200&q=80"
               alt="New Zealand landscape"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-in-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 to-transparent" />
-            <span className="absolute bottom-3 left-3 text-white text-sm font-bold tracking-wide">🇳🇿 New Zealand</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-[#0B1F3A]/20 to-transparent z-20" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-30 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between">
+                <span className="text-white font-bold text-lg tracking-wide flex items-center gap-3">
+                  <span className="text-2xl drop-shadow-md">🇳🇿</span> New Zealand
+                </span>
+                <span className="text-[#D4A24C] bg-[#D4A24C]/10 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-[#D4A24C]/30 shadow-[0_0_10px_rgba(212,162,76,0.2)]">
+                  Top Choice
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

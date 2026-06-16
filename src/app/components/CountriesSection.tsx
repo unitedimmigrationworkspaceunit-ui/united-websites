@@ -97,7 +97,7 @@ export function CountriesSection() {
   };
 
   return (
-    <section id="countries" className="py-32 bg-gradient-to-b from-white to-[#FAF7F2] relative overflow-hidden">
+    <section id="countries" className="py-32 bg-gradient-to-b from-[#FAF7F2] via-white to-[#FAF7F2] relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-[#F5EFE6] blur-[120px] opacity-60"></div>

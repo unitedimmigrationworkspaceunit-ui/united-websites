@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { Button } from './ui/button';
-import { Sparkles, ArrowRight, CheckCircle2, Star, Play, Phone } from 'lucide-react';
+import { Sparkles, ArrowRight, CheckCircle2, Star, Play, Phone, Plane } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { indianHero } from '../assets/images';
 
@@ -57,6 +57,25 @@ export function HeroSection() {
         <div className="absolute top-20 right-10 w-80 h-80 bg-[#D4A24C]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#0B1F3A]/5 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-[#D4A24C]/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+
+        {/* Animated Flying Planes Background */}
+        {/* Plane 1: Bottom-Left to Top-Right */}
+        <motion.div
+          animate={{ x: ['-20vw', '120vw'], y: ['80vh', '-20vh'] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-0 left-0 text-[#D4A24C]/10 z-0 pointer-events-none"
+        >
+          <Plane className="w-48 h-48 sm:w-64 sm:h-64" />
+        </motion.div>
+
+        {/* Plane 2: Top-Left to Bottom-Right */}
+        <motion.div
+          animate={{ x: ['-20vw', '120vw'], y: ['-20vh', '80vh'] }}
+          transition={{ duration: 30, repeat: Infinity, ease: 'linear', delay: 5 }}
+          className="absolute top-0 left-0 text-[#D4A24C]/10 z-0 pointer-events-none"
+        >
+          <Plane className="w-32 h-32 sm:w-48 sm:h-48 rotate-90" />
+        </motion.div>
       </div>
 
       <motion.div style={{ y, opacity }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-10 w-full">
@@ -217,82 +236,57 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-            className="relative"
+            className="relative h-full w-full flex items-center justify-center"
           >
             {/* Main large image */}
             <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl"
+              animate={{ y: [-15, 15, -15] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              whileHover={{ scale: 1.02 }}
+              className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px] lg:h-[640px] w-full group border border-white/40"
             >
               <ImageWithFallback
-                src="/image001.jpeg"
-                alt="Airplane flying in purple sky - Turning Dreams into Destinations"
-                className="w-full h-[480px] object-cover"
+                src="/aroimages.png"
+                alt="Airplane flying at sunset - Turning Dreams into Destinations"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-in-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 via-[#0B1F3A]/20 to-transparent" />
+
               {/* Video play overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl group"
+                  className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl group-hover:bg-white/30 transition-all border border-white/30"
                 >
-                  <Play className="w-8 h-8 text-[#D4A24C] fill-[#D4A24C] ml-1 group-hover:scale-110 transition-transform" />
+                  <Play className="w-8 h-8 text-white fill-white ml-1 group-hover:scale-110 transition-transform drop-shadow-md" />
                 </motion.button>
               </div>
+
               {/* Bottom label */}
-              <div className="absolute bottom-6 left-6 text-white">
-                <p className="font-bold text-xl">Your Dream, Our Mission</p>
-                <p className="text-white/80">Watch success stories →</p>
+              <div className="absolute bottom-8 left-8 text-white z-20">
+                <p className="font-bold text-2xl drop-shadow-md mb-2">Your Dream, Our Mission</p>
+                <div className="flex items-center text-white/90 hover:text-white transition-colors cursor-pointer group/link">
+                  <span className="font-medium">Watch success stories</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" />
+                </div>
               </div>
             </motion.div>
-
-            {/* Small images grid */}
-            <div className="grid grid-cols-3 gap-3 mt-3">
-              {[
-                {
-                  src: 'https://images.unsplash.com/photo-1586576782138-19304c43d0e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxUb3JvbnRvJTIwc2t5bGluZSUyMENhbmFkYSUyMGNpdHlzY2FwZXxlbnwxfHx8fDE3ODA0NzY0MTZ8MA&ixlib=rb-4.1.0&q=80&w=400',
-                  label: '🇨🇦 Canada',
-                },
-                {
-                  src: 'https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTeWRuZXklMjBPcGVyYSUyMEhvdXNlJTIwQXVzdHJhbGlhJTIwbGFuZG1hcmt8ZW58MXx8fHwxNzgwNDc2NDE2fDA&ixlib=rb-4.1.0&q=80&w=400',
-                  label: '🇦🇺 Australia',
-                },
-                {
-                  src: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxCaWclMjBCZW4lMjBMb25kb24lMjBsYW5kbWFyayUyMFVuaXRlZCUyMEtpbmdkb218ZW58MXx8fHwxNzgwNDc2NDE2fDA&ixlib=rb-4.1.0&q=80&w=400',
-                  label: '🇬🇧 UK',
-                },
-              ].map((img, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -4 }}
-                  className="group relative rounded-2xl overflow-hidden shadow-lg aspect-[4/3] cursor-pointer"
-                >
-                  <ImageWithFallback
-                    src={img.src}
-                    alt={img.label}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/70 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="absolute bottom-2 left-2 text-white text-xs font-semibold transform group-hover:translate-x-1 transition-transform duration-300">{img.label}</span>
-                </motion.div>
-              ))}
-            </div>
 
             {/* Floating Stats Cards */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8, x: -20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ delay: 1 }}
-              className="absolute -left-8 top-12 bg-white rounded-2xl shadow-2xl p-5 backdrop-blur-sm border border-[#D4A24C]/20"
+              className="absolute -left-6 lg:-left-12 top-24 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] p-5 border border-gray-100 z-30"
             >
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#D4A24C] to-[#B8892E] rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">98%</span>
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-[#D4A24C]/10 rounded-xl flex items-center justify-center border border-[#D4A24C]/20">
+                  <span className="text-[#D4A24C] font-black text-lg">98%</span>
                 </div>
                 <div>
-                  <p className="font-bold text-[#0B1F3A]">Success Rate</p>
-                  <p className="text-xs text-gray-500">Across all visa types</p>
+                  <p className="font-bold text-[#0B1F3A] text-sm lg:text-base">Success Rate</p>
+                  <p className="text-xs text-gray-500 font-medium">Across all visa types</p>
                 </div>
               </div>
             </motion.div>
@@ -301,32 +295,32 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.8, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ delay: 1.2 }}
-              className="absolute -right-6 bottom-28 bg-white rounded-2xl shadow-2xl p-5 border border-[#D4A24C]/20"
+              className="absolute -right-4 lg:-right-8 bottom-32 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] p-5 border border-gray-100 z-30"
             >
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-white" />
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center border border-green-100">
+                  <CheckCircle2 className="w-6 h-6 text-green-500" />
                 </div>
                 <div>
-                  <p className="font-bold text-[#0B1F3A]">50,000+</p>
-                  <p className="text-xs text-gray-500">Visas Approved</p>
+                  <p className="font-bold text-[#0B1F3A] text-sm lg:text-base">50,000+</p>
+                  <p className="text-xs text-gray-500 font-medium">Visas Approved</p>
                 </div>
               </div>
             </motion.div>
 
             {/* Live indicator */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.4 }}
-              className="absolute top-4 right-4 bg-white rounded-full px-4 py-2 shadow-lg flex items-center gap-2"
+              className="absolute top-6 right-6 lg:right-10 bg-white/90 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg flex items-center gap-2.5 border border-white/50 z-30"
             >
               <motion.div
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
+                animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                transition={{ repeat: Infinity, duration: 2 }}
                 className="w-2.5 h-2.5 bg-green-500 rounded-full"
               />
-              <span className="text-sm font-semibold text-[#0B1F3A]">Live Chat Available</span>
+              <span className="text-sm font-bold text-[#0B1F3A]">Live Chat</span>
             </motion.div>
           </motion.div>
         </div>
